@@ -1,0 +1,46 @@
+---
+title: "FML_Assignment1"
+author: "Durga Chowdary Koduru Lokesh"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Importing the dataset downloaded from kaggle to R
+#Data Source: https://www.kaggle.com/datasets/ammaraahmad/top-10-machine-learning-datasets?select=CO2_emission.csv
+
+dataset = read.csv("C:/Durga/CO2_emission (1).csv")
+
+#View dataset
+
+dataset
+
+# Descriptive statistics for Quantitative Variables and categorical variables
+
+mean(dataset$CO2_Emissions)
+sd(dataset$CO2_Emissions)
+table(dataset$Model)
+var(dataset$CO2_Emissions)
+dataset$CO2_Emissions= mean(dataset$CO2_Emissions)- sd(dataset$CO2_Emissions)
+dataset$CO2_Emissions
+
+# Transformed the CO2_Emissions variable by taking sqrt  
+
+dataset$CO2_Emissions_Transformed = sqrt(dataset$CO2_Emissions)
+dataset$CO2_Emissions_Transformed
+
+#Plotting Smog_Level and CO2_Emissions
+
+hist(dataset$Smog_Level)
+x = dataset$CO2_Emissions
+y = dataset$Smog_Level
+plot(x,y, main = "Area and Length", xlab = "Area", ylab = "Length")
+
+```
+
+
+
